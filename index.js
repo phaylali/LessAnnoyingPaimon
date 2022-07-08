@@ -153,7 +153,6 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('qiqi')) {
             message.reply('may qiqi curse your pity')
         };
-    
         if (message.content.includes('mona')) {
             message.reply('broke ass bish, kadir dart m3a jiran, tsr9hom o thrb')
         };
@@ -163,7 +162,6 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('jean')) {
             message.reply('the Acting Grand Master of the Gays of Favonius')
         };
-    
         if (message.content.includes('beidu')) {
             message.reply('are you into women who will dominate you?')
         };
@@ -173,7 +171,6 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('sayu')) {
             message.reply('let the girl sleep bruuuuuuh')
         };
-    
         if (message.content.includes('rosaria')) {
             message.reply('you\'re into toxic girls, aren\'t you?')
         };
@@ -192,7 +189,6 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('shenhe')) {
             message.reply('cryo mommy? sorry, cryo mommy? sorry')
         };
-    
         if (message.content.includes('thoma')) {
             message.reply('useleeeeeeeeeeeeess')
         };
@@ -211,7 +207,6 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('ayaka')) {
             message.reply('who doesn\'t have ayaka? b7ala b7al la carte national')
         };
-    
         if (message.content.includes('hutao')) {
             message.reply('Who? Tao, waiting for you to die')
         };
