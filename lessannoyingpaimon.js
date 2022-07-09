@@ -219,6 +219,9 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('yelan')) {
             message.reply('chti li kayskippi yelan achkayw9a3lo?')
         };
+        if (message.content.includes('anass') || message.content.includes('anas') ) {
+            message.reply('9olo l anas ykhtar wa7da, beidu wla yoimiya?')
+        };
     }
 
     
