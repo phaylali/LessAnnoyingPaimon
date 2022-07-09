@@ -1,1 +1,1 @@
-Worker: node lessannoyingpaimon.js
+worker: node lessannoyingpaimon.js
