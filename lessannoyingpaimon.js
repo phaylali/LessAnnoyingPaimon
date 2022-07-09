@@ -93,13 +93,13 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('kazuha')) {
             message.reply('ra7 lghali ra7')
         };
-        if (message.content.includes('shogun') || message.content.includes('ei') || message.content.includes('raiden')) {
+        if (message.content.includes('shogun')  || message.content.includes('raiden')) {
             message.reply('lalak Raiden Ei Shogun')
         }
         if (message.content.includes('barbara')) {
             message.reply('Barbara is God tier')
         };
-        if (message.content.includes('xingqiu')) {
+        if (message.content.includes('xingqiu')|| message.content.includes('xingqui')) {
             message.reply('xingqui\'s pronouns are ns/ns')
         };
         if (message.content.includes('albedo')) {
@@ -162,7 +162,7 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('jean')) {
             message.reply('the Acting Grand Master of the Gays of Favonius')
         };
-        if (message.content.includes('beidu')) {
+        if (message.content.includes('beidu')|| message.content.includes('beidou')) {
             message.reply('are you into women who will dominate you?')
         };
         if (message.content.includes('diluc')) {
@@ -174,10 +174,10 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('rosaria')) {
             message.reply('you\'re into toxic girls, aren\'t you?')
         };
-        if (message.content.includes('yunjin')) {
+        if (message.content.includes('yunjin')|| message.content.includes('yun jin')) {
             message.reply('no offense but why does she sound like a dying bird?')
         };
-        if (message.content.includes('gorou')) {
+        if (message.content.includes('gorou')|| message.content.includes('gourou')|| message.content.includes('gouro')|| message.content.includes('goru')) {
             message.reply('what a nasty dog?, itto\'s sidechick')
         };
         if (message.content.includes('ganyu')) {
