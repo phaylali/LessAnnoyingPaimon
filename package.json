@@ -9,10 +9,10 @@
   "name": "lessannoyingpaimon",
   "version": "1.0.0",
   "description": "a discord bot for welcome new members of a genshin community",
-  "main": "index.js",
+  "main": "lessannoyingpaimon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node lessannoyingpaimon.js"
   },
   "author": "phaylali",
   "license": "ISC",
