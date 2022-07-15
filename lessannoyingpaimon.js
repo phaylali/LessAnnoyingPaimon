@@ -337,7 +337,7 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('tesla')) {
             message.reply('GG!')
         };
-        if (message.content.includes('Fs')&&message.content.includes('chat')) {
+        if (message.content.includes('F')&&message.content.includes('chat')) {
             message.reply('F')
             message.reply('F')
             message.reply('F')
