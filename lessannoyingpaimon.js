@@ -7,7 +7,7 @@ const prefix = '!'
 import dot from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
-
+import { tips, tipsAbyss, tipsArchipelago, tipsDomains, tipsEnkanomiya, tipsGeneral, tipsMondstadt, tipsTeapot } from './tips.js'
 const __filename = fileURLToPath(import.meta.url);
 
 // 👇️ "/home/john/Desktop/javascript"
@@ -27,7 +27,7 @@ const client = new Client({
 
 client.on("ready", async () => {
     console.log(`BARBARA C6 REVIVED YOU ${client.user.tag}`);
-    const channelId = process.env.CHANNEL;
+    const channelId = process.env.ONLINE;
     Welcome(client);
     function fontFile(name) {
         return join(__dirname, '/fonts/', name)
@@ -57,10 +57,76 @@ client.on('messageCreate', async (message) => {
 
         message.channel.send(result.results[Math.floor(Math.random() * result.results.length)].url)
     }
+    if (message.content.startsWith('!tip')) {
+        if (message.content.includes('-t')) {
+            if (message.content.includes('abyss') || message.content.includes('spiral')) {
+                const randomTip = tipsAbyss[Math.floor(Math.random() * tipsAbyss.length)]
+
+                message.reply(randomTip)
+            };
+            if (message.content.includes('apple') || message.content.includes('golden') || message.content.includes('archipelago')) {
+                const randomTip = tipsArchipelago[Math.floor(Math.random() * tipsArchipelago.length)]
+
+                message.reply(randomTip)
+            };
+            if (message.content.includes('enkanomiya') || message.content.includes('enkonomiya') || message.content.includes('enkanomia') || message.content.includes('enkonomia')) {
+                const randomTip = tipsEnkanomiya[Math.floor(Math.random() * tipsEnkanomiya.length)]
+
+                message.reply(randomTip)
+            };
+            if (message.content.includes('domain') || message.content.includes('domains')) {
+                const randomTip = tipsDomains[Math.floor(Math.random() * tipsDomains.length)]
+
+                message.reply(randomTip)
+            };
+            if (message.content.includes('general')) {
+                const randomTip = tipsGeneral[Math.floor(Math.random() * tipsGeneral.length)]
+
+                message.reply(randomTip)
+            };
+            if (message.content.includes('teapot') || message.content.includes('pot') || message.content.includes('serenitea')) {
+                const randomTip = tipsTeapot[Math.floor(Math.random() * tipsTeapot.length)]
+
+                message.reply(randomTip)
+            };
+            if (message.content.includes('mondstadt') || message.content.includes('monstade') || message.content.includes('mondstad')) {
+                const randomTip = tipsMondstadt[Math.floor(Math.random() * tipsMondstadt.length)]
+
+                message.reply(randomTip)
+            };
+        } else {
+            const args = message.content.slice(prefix.length).trim().split(' ')
+            const command = args.shift().toLowerCase()
+            const match = tips.find(element => {
+                if (element.includes(command)) {
+                  return true;
+                }
+              });
+            if (command == undefined) {
+                const randomTip = tipsMondstadt[Math.floor(Math.random() * tipsMondstadt.length)]
+                message.reply(randomTip)
+            } else {
+                if(match !== undefined){
+                    let tip = tips.filter(function (e) {return e.includes(command);});
+                    const randomTip = tip[Math.floor(Math.random() * tip.length)]
+                    message.reply(randomTip)
+                } else {
+                    message.reply('No tip contains that word')
+                }
+
+                
+
+            }
+
+
+        }
+
+
+    }
     if (!message.content.startsWith(prefix)) {
         if (message.content.includes('barbara gifs')) {
             const randomBarbara = barbara[Math.floor(Math.random() * barbara.length)]
-    
+
             message.reply(randomBarbara)
         };
         if (message.content.includes('yoimiya') || message.content.includes('yoimia')) {
@@ -93,13 +159,13 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('kazuha')) {
             message.reply('ra7 lghali ra7')
         };
-        if (message.content.includes('shogun')  || message.content.includes('raiden')) {
+        if (message.content.includes('shogun') || message.content.includes('raiden')) {
             message.reply('lalak Raiden Ei Shogun')
         }
         if (message.content.includes('barbara')) {
             message.reply('Barbara is God tier')
         };
-        if (message.content.includes('xingqiu')|| message.content.includes('xingqui')) {
+        if (message.content.includes('xingqiu') || message.content.includes('xingqui')) {
             message.reply('xingqui\'s pronouns are ns/ns')
         };
         if (message.content.includes('albedo')) {
@@ -162,7 +228,7 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('jean')) {
             message.reply('the Acting Grand Master of the Gays of Favonius')
         };
-        if (message.content.includes('beidu')|| message.content.includes('beidou')) {
+        if (message.content.includes('beidu') || message.content.includes('beidou')) {
             message.reply('are you into women who will dominate you?')
         };
         if (message.content.includes('diluc')) {
@@ -174,10 +240,10 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('rosaria')) {
             message.reply('you\'re into toxic girls, aren\'t you?')
         };
-        if (message.content.includes('yunjin')|| message.content.includes('yun jin')) {
+        if (message.content.includes('yunjin') || message.content.includes('yun jin')) {
             message.reply('no offense but why does she sound like a dying bird?')
         };
-        if (message.content.includes('gorou')|| message.content.includes('gourou')|| message.content.includes('gouro')|| message.content.includes('goru')) {
+        if (message.content.includes('gorou') || message.content.includes('gourou') || message.content.includes('gouro') || message.content.includes('goru')) {
             message.reply('what a nasty dog?, itto\'s sidechick')
         };
         if (message.content.includes('ganyu')) {
@@ -219,18 +285,22 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('yelan')) {
             message.reply('chti li kayskippi yelan achkayw9a3lo?')
         };
-        if (message.content.includes('anass') || message.content.includes('anas') ) {
+        if (message.content.includes('anass') || message.content.includes('anas')) {
             message.reply('9olo l anas ykhtar wa7da, beidu wla yoimiya?')
+        };
+        if (message.content.includes('gg') || message.content.includes('GG')) {
+            message.reply('shut the fuck up Tesla')
         };
     }
 
-    
+
 
 
 
 })
 
 const barbara = ["https://c.tenor.com/mTlZdIeQH2sAAAAC/barbara-genshin-impact.gif", "https://c.tenor.com/QSx47PIsUQ4AAAAd/genshin.gif", "https://c.tenor.com/4KaP9Qyfv3AAAAAd/barbara-genshin.gif", "https://c.tenor.com/V5cg3z9nqscAAAAM/genshin-impact.gif", "https://c.tenor.com/fp7fWugF1awAAAAC/mihoyo-genshin.gif", "https://c.tenor.com/504bpDDh8BYAAAAd/genshin-impact.gif", "https://c.tenor.com/Zy6zaXkrFIgAAAAM/barbara-genshin.gif"]
+
 
 
 

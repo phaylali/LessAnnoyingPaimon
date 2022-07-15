@@ -2,7 +2,7 @@ import generateImage from "./generateimage.js";
 
 
 export default async (client) => {
-    const channelId= process.env.CHANNEL;
+    const channelId= process.env.WELCOME;
     const rolesChannel=process.env.ROLES;
     const rulesChannel=process.env.RULES;
     client.on("guildMemberAdd",async (member)=>{
