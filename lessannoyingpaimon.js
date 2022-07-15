@@ -1,5 +1,6 @@
 import { Client, MessageEmbed } from 'discord.js'
 import Welcome from './welcome.js'
+import keepAlive from './server.js'
 import { registerFont } from 'canvas'
 import { join } from 'path'
 import fetch from 'node-fetch'
@@ -354,5 +355,5 @@ const barbara = ["https://c.tenor.com/mTlZdIeQH2sAAAAC/barbara-genshin-impact.gi
 
 
 
-
+keepAlive()
 client.login(process.env.TOKEN)
