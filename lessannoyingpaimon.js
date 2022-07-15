@@ -319,7 +319,7 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('anass') || message.content.includes('anas')) {
             message.reply('9olo l anas ykhtar wa7da, beidu wla yoimiya?')
         };
-        if (message.content.includes('gg') || message.content.includes('GG')) {
+        if (message.content.startsWith('gg')||(message.content.startsWith('GG'))) {
             message.reply('shut the fuck up Tesla')
         };
         if (message.content.includes('paimon')) {
@@ -332,7 +332,7 @@ client.on('messageCreate', async (message) => {
             message.reply('the king of shogun simps, bgha ybuildi lpity fl banner d ayaka o tkhwr')
         };
         if (message.content.includes('shaymaa')) {
-            message.reply('lgame kamla tal3a 3la elemental reactions')
+            message.reply('Eula A tier 7it ma3andach elemental reactions')
         };
         if (message.content.includes('tesla')) {
             message.reply('GG!')
