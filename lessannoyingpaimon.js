@@ -1,4 +1,4 @@
-import { Client } from 'discord.js'
+import { Client, MessageEmbed } from 'discord.js'
 import Welcome from './welcome.js'
 import { registerFont } from 'canvas'
 import { join } from 'path'
@@ -7,7 +7,7 @@ const prefix = '!'
 import dot from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { tips, tipsAbyss, tipsArchipelago, tipsDomains, tipsEnkanomiya, tipsGeneral, tipsMondstadt, tipsTeapot } from './tips.js'
+import { tipz, tipsAbyss, tipsArchipelago, tipsDomains, tipsEnkanomiya, tipsGeneral, tipsMondstadt, tipsTeapot } from './tips.js'
 const __filename = fileURLToPath(import.meta.url);
 
 // 👇️ "/home/john/Desktop/javascript"
@@ -57,6 +57,34 @@ client.on('messageCreate', async (message) => {
 
         message.channel.send(result.results[Math.floor(Math.random() * result.results.length)].url)
     }
+    if(message.content.startsWith('!paimon.help')){
+        const helpEmbed = new MessageEmbed()
+        .setColor('#ef5053')
+        .setTitle('LessAnnoyingPaimon Help Menu')
+        .setURL('https://genshin.omniversify.com/')
+        .setAuthor({ name: 'Phaylali', iconURL: 'https://i.imgur.com/RPKNAZN.png', url: 'https://omniversify.com' })
+        .setDescription('Here you can find the menu of using LessAnnoyingPaimon Discord bot')
+        .setThumbnail('https://i.imgur.com/RPKNAZN.png')
+        .addFields(
+            { name: '!gif [character]', value: 'use this command followed by the name of the genshin character to get a ranom gif from Tenor about that character' },
+            { name: '!tip', value: 'use this command to get a random tip' },
+            { name: '!tip -t', value: 'use this command to get a random tip from one of the categories from the below' },
+            { name: 'Mondstadt', value: 'use !tip -t mondstadt or monstade or mondstad',inline: true },
+            { name: 'General', value: 'use !tip -t general',inline: true },
+            { name: 'Golden Apple Archipelago', value: 'use !tip -t golden or apple or archipelago',inline: true },
+            { name: 'Spiral Abyss', value: 'use !tip -t spiral or abyss',inline: true },
+            { name: 'Domains', value: 'use !tip -t domains or domain',inline: true },
+            { name: 'Serenitea Pot', value: 'use !tip -t pot or teapot or serenitea',inline: true },
+            { name: 'Enkanomiya', value: 'use !tip -t enkanomiya or enkonomiya or enkanomia or enkonomia or eukonomiya',inline: true },
+            { name: 'Custom community replies', value: 'to trigger the bot to reply, make sure to use a name of a character or a member of the community in lowercase' },
+        )
+        .addField('Suggestions', 'if you have any suggestions to make the bot more useful or more valuable or even funnier, please dm the author or the admin, or you can put them in Paimon text channel', true)
+        
+        .setTimestamp()
+        .setFooter({ text: 'I hope you have fun', iconURL: 'https://i.imgur.com/RPKNAZN.png' });
+        message.channel.send({ embeds: [helpEmbed] });
+        
+    }
     if (message.content.startsWith('!tip')) {
         if (message.content.includes('-t')) {
             if (message.content.includes('abyss') || message.content.includes('spiral')) {
@@ -69,7 +97,7 @@ client.on('messageCreate', async (message) => {
 
                 message.reply(randomTip)
             };
-            if (message.content.includes('enkanomiya') || message.content.includes('enkonomiya') || message.content.includes('enkanomia') || message.content.includes('enkonomia')) {
+            if (message.content.includes('enkanomiya') || message.content.includes('enkonomiya') || message.content.includes('enkanomia') || message.content.includes('enkonomia') || message.content.includes('eukonomiya')) {
                 const randomTip = tipsEnkanomiya[Math.floor(Math.random() * tipsEnkanomiya.length)]
 
                 message.reply(randomTip)
@@ -95,26 +123,29 @@ client.on('messageCreate', async (message) => {
                 message.reply(randomTip)
             };
         } else {
-            const args = message.content.slice(prefix.length).trim().split(' ')
+            const args = message.content.replace("!tip", "").trim().split(' ')
             const command = args.shift().toLowerCase()
-            const match = tips.find(element => {
-                if (element.includes(command)) {
-                  return true;
-                }
-              });
-            if (command == undefined) {
-                const randomTip = tipsMondstadt[Math.floor(Math.random() * tipsMondstadt.length)]
+            const index = tipz.findIndex(element => {
+                return element.toLowerCase() === command.toLowerCase();
+            });
+            let containers = tipz.filter(function (element) {
+                return element.toLowerCase() === command.toLowerCase();
+            });
+
+            if (command == "" || command == " ") {
+                const randomTip = tipz[Math.floor(Math.random() * tipz.length)]
                 message.reply(randomTip)
+
             } else {
-                if(match !== undefined){
-                    let tip = tips.filter(function (e) {return e.includes(command);});
-                    const randomTip = tip[Math.floor(Math.random() * tip.length)]
+                if (containers.length !== 0) {
+
+                    const randomTip = containers[Math.floor(Math.random() * containers.length)]
                     message.reply(randomTip)
                 } else {
                     message.reply('No tip contains that word')
                 }
 
-                
+
 
             }
 
@@ -290,6 +321,26 @@ client.on('messageCreate', async (message) => {
         };
         if (message.content.includes('gg') || message.content.includes('GG')) {
             message.reply('shut the fuck up Tesla')
+        };
+        if (message.content.includes('paimon')) {
+            message.reply('emergency food')
+        };
+        if (message.content.includes('fatima')) {
+            message.reply('go to america server yal mnbouda')
+        };
+        if (message.content.includes('phaylali')) {
+            message.reply('the king of shogun simps, bgha ybuildi lpity fl banner d ayaka o tkhwr')
+        };
+        if (message.content.includes('shaymaa')) {
+            message.reply('lgame kamla tal3a 3la elemental reactions')
+        };
+        if (message.content.includes('tesla')) {
+            message.reply('GG!')
+        };
+        if (message.content.includes('F')|| message.content.includes('Fs')&&message.content.includes('chat')) {
+            message.reply('F')
+            message.reply('F')
+            message.reply('F')
         };
     }
 

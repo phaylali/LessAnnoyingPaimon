@@ -242,13 +242,23 @@ const tipsAbyss = [
     "Spiral Abyss: While you consecutively challenge three chambers on each floor, you cannot change your party configuration. As you venture deeper, the path gets more narrow and is filled with thorns.",
 ]
 
-const tips = [...tipsAbyss, ...tipsArchipelago, ...tipsDomains, ...tipsEnkanomiya, ...tipsGeneral, ...tipsMondstadt, ...tipsTeapot]
+const tipz = [...tipsAbyss, ...tipsArchipelago, ...tipsDomains, ...tipsEnkanomiya, ...tipsGeneral, ...tipsMondstadt, ...tipsTeapot]
 
-exports.tips = tips;
-exports.tipsAbyss = tipsAbyss;
-exports.tipsArchipelago = tipsArchipelago; 
-exports.tipsDomains = tipsDomains; 
-exports.tipsEnkanomiya = tipsEnkanomiya; 
-exports.tipsGeneral = tipsGeneral; 
-exports.tipsMondstadt = tipsMondstadt; 
-exports.tipsTeapot = tipsTeapot;
+
+
+const _tipz = tipz
+export { _tipz as tipz }
+const _tipsAbyss = tipsAbyss
+export { _tipsAbyss as tipsAbyss }
+const _tipsArchipelago = tipsArchipelago
+export { _tipsArchipelago as tipsArchipelago } 
+const _tipsDomains = tipsDomains
+export { _tipsDomains as tipsDomains } 
+const _tipsEnkanomiya = tipsEnkanomiya
+export { _tipsEnkanomiya as tipsEnkanomiya } 
+const _tipsGeneral = tipsGeneral
+export { _tipsGeneral as tipsGeneral } 
+const _tipsMondstadt = tipsMondstadt
+export { _tipsMondstadt as tipsMondstadt } 
+const _tipsTeapot = tipsTeapot
+export { _tipsTeapot as tipsTeapot }
