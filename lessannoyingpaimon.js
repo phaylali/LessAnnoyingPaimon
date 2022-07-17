@@ -323,6 +323,9 @@ client.on('messageCreate', async (message) => {
         if (message.content.startsWith('gg')||(message.content.startsWith('GG'))) {
             message.reply('shut the fuck up Tesla')
         };
+        if (message.content.startsWith('Gg')) {
+            message.reply('shut the fuck up Ghassane')
+        };
         if (message.content.includes('paimon')) {
             message.reply('emergency food')
         };
