@@ -1,5 +1,5 @@
 import { createCanvas, loadImage } from 'canvas'
-import { MessageAttachment } from 'discord.js'
+import { AttachmentBuilder } from 'discord.js'
 const achievement = "https://i.imgur.com/ddv7j8o.png"
 
 const dim = {
@@ -17,13 +17,11 @@ const generateImage = async (member) => {
     const backimg = await loadImage(achievement)
     ctx.drawImage(backimg,0,0)
     const avimg = await loadImage(member.user.displayAvatarURL({format: "png", size: 512}))
-    
-      
     ctx.drawImage(avimg, 195, 130,100,100)
     ctx.fillStyle = "black"
     ctx.font = '46pt OmniversifyFonts'
     ctx.fillText(username, 890, 255);
-    const attachment  = new MessageAttachment(canvas.toBuffer(), "welcome.png")
+    const attachment  = new AttachmentBuilder(canvas.toBuffer(), "welcome.png")
 return attachment
 
 }

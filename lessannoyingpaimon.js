@@ -1,4 +1,4 @@
-import { Client, MessageEmbed } from 'discord.js'
+import { Client, EmbedBuilder, GatewayIntentBits } from 'discord.js'
 import Welcome from './welcome.js'
 import keepAlive from './server.js'
 import { registerFont } from 'canvas'
@@ -20,8 +20,8 @@ const client = new Client({
         parse: ['users', 'roles'],
         repliedUser: true,
     },
-    intents: [
-        "GUILDS", "GUILD_MESSAGES", "GUILD_PRESENCES", "GUILD_MEMBERS", "GUILD_MESSAGE_REACTIONS",
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions,
+
 
     ],
 });
@@ -58,33 +58,33 @@ client.on('messageCreate', async (message) => {
 
         message.channel.send(result.results[Math.floor(Math.random() * result.results.length)].url)
     }
-    if(message.content.startsWith('!paimon.help')){
-        const helpEmbed = new MessageEmbed()
-        .setColor('#ef5053')
-        .setTitle('LessAnnoyingPaimon Help Menu')
-        .setURL('https://genshin.omniversify.com/')
-        .setAuthor({ name: 'Phaylali', iconURL: 'https://i.imgur.com/RPKNAZN.png', url: 'https://omniversify.com' })
-        .setDescription('Here you can find the menu of using LessAnnoyingPaimon Discord bot')
-        .setThumbnail('https://i.imgur.com/RPKNAZN.png')
-        .addFields(
-            { name: '!gif [character]', value: 'use this command followed by the name of the genshin character to get a ranom gif from Tenor about that character' },
-            { name: '!tip', value: 'use this command to get a random tip' },
-            { name: '!tip -t', value: 'use this command to get a random tip from one of the categories from the below' },
-            { name: 'Mondstadt', value: 'use !tip -t mondstadt or monstade or mondstad',inline: true },
-            { name: 'General', value: 'use !tip -t general',inline: true },
-            { name: 'Golden Apple Archipelago', value: 'use !tip -t golden or apple or archipelago',inline: true },
-            { name: 'Spiral Abyss', value: 'use !tip -t spiral or abyss',inline: true },
-            { name: 'Domains', value: 'use !tip -t domains or domain',inline: true },
-            { name: 'Serenitea Pot', value: 'use !tip -t pot or teapot or serenitea',inline: true },
-            { name: 'Enkanomiya', value: 'use !tip -t enkanomiya or enkonomiya or enkanomia or enkonomia or eukonomiya',inline: true },
-            { name: 'Custom community replies', value: 'to trigger the bot to reply, make sure to use a name of a character or a member of the community in lowercase' },
-        )
-        .addField('Suggestions', 'if you have any suggestions to make the bot more useful or more valuable or even funnier, please dm the author or the admin, or you can put them in Paimon text channel', true)
-        
-        .setTimestamp()
-        .setFooter({ text: 'I hope you have fun', iconURL: 'https://i.imgur.com/RPKNAZN.png' });
+    if (message.content.startsWith('!paimon.help')) {
+        const helpEmbed = new EmbedBuilder()
+            .setColor('#ef5053')
+            .setTitle('LessAnnoyingPaimon Help Menu')
+            .setURL('https://genshin.omniversify.com/')
+            .setAuthor({ name: 'Phaylali', iconURL: 'https://i.imgur.com/RPKNAZN.png', url: 'https://omniversify.com' })
+            .setDescription('Here you can find the menu of using LessAnnoyingPaimon Discord bot')
+            .setThumbnail('https://i.imgur.com/RPKNAZN.png')
+            .addFields(
+                { name: '!gif [character]', value: 'use this command followed by the name of the genshin character to get a ranom gif from Tenor about that character' },
+                { name: '!tip', value: 'use this command to get a random tip' },
+                { name: '!tip -t', value: 'use this command to get a random tip from one of the categories from the below' },
+                { name: 'Mondstadt', value: 'use !tip -t mondstadt or monstade or mondstad', inline: true },
+                { name: 'General', value: 'use !tip -t general', inline: true },
+                { name: 'Golden Apple Archipelago', value: 'use !tip -t golden or apple or archipelago', inline: true },
+                { name: 'Spiral Abyss', value: 'use !tip -t spiral or abyss', inline: true },
+                { name: 'Domains', value: 'use !tip -t domains or domain', inline: true },
+                { name: 'Serenitea Pot', value: 'use !tip -t pot or teapot or serenitea', inline: true },
+                { name: 'Enkanomiya', value: 'use !tip -t enkanomiya or enkonomiya or enkanomia or enkonomia or eukonomiya', inline: true },
+                { name: 'Custom community replies', value: 'to trigger the bot to reply, make sure to use a name of a character or a member of the community in lowercase' },
+            )
+            .addField('Suggestions', 'if you have any suggestions to make the bot more useful or more valuable or even funnier, please dm the author or the admin, or you can put them in Paimon text channel', true)
+
+            .setTimestamp()
+            .setFooter({ text: 'I hope you have fun', iconURL: 'https://i.imgur.com/RPKNAZN.png' });
         message.channel.send({ embeds: [helpEmbed] });
-        
+
     }
     if (message.content.startsWith('!tip')) {
         if (message.content.includes('-t')) {
@@ -320,7 +320,7 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('anass') || message.content.includes('anas')) {
             message.reply('9olo l anas ykhtar wa7da, beidu wla yoimiya?')
         };
-        if (message.content.startsWith('gg')||(message.content.startsWith('GG'))) {
+        if (message.content.startsWith('gg') || (message.content.startsWith('GG'))) {
             message.reply('shut the fuck up Tesla')
         };
         if (message.content.startsWith('Gg')) {
@@ -344,7 +344,7 @@ client.on('messageCreate', async (message) => {
         if (message.content.includes('chkoun') || message.content.includes('chkon')) {
             message.reply('1-0')
         };
-        if (message.content.includes('F')&&message.content.includes('chat')) {
+        if (message.content.includes('F') && message.content.includes('chat')) {
             message.reply('F')
             message.reply('F')
             message.reply('F')
